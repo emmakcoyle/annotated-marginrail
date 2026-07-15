@@ -114,12 +114,12 @@
       }
     },
     "components": {
-      "ExampleComponent": {
-        "displayName": "Example Component",
-        "defaultPosition": "right",
-        "defaultPriority": 50
-      }
-    }
+  "MarginRail": {
+    "displayName": "Margin Rail",
+    "defaultPosition": "right",
+    "defaultPriority": 5
+  }
+}
   },
   "engines": {
     "node": ">=22",

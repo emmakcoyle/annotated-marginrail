@@ -1,7 +1,7 @@
 import { QuartzTransformerPlugin, QuartzFilterPlugin, QuartzEmitterPlugin } from '@quartz-community/types';
 export { PageGenerator, PageMatcher, QuartzComponent, QuartzComponentConstructor, QuartzComponentProps, QuartzEmitterPlugin, QuartzFilterPlugin, QuartzPageTypePlugin, QuartzPageTypePluginInstance, QuartzTransformerPlugin, StringResource, VirtualPage } from '@quartz-community/types';
 import { ExampleTransformerOptions, ExampleFilterOptions, ExampleEmitterOptions } from './types.js';
-export { ExampleComponent, ExampleComponentOptions } from './components/index.js';
+export { MarginRail } from './components/index.js';
 
 /**
  * Example transformer showing remark/rehype usage and resource injection.
@@ -18,4 +18,10 @@ declare const ExampleFilter: QuartzFilterPlugin<Partial<ExampleFilterOptions>>;
  */
 declare const ExampleEmitter: QuartzEmitterPlugin<Partial<ExampleEmitterOptions>>;
 
-export { ExampleEmitter, ExampleEmitterOptions, ExampleFilter, ExampleFilterOptions, ExampleTransformer, ExampleTransformerOptions };
+interface ExampleComponentOptions {
+    prefix?: string;
+    suffix?: string;
+    className?: string;
+}
+
+export { type ExampleComponentOptions, ExampleEmitter, ExampleEmitterOptions, ExampleFilter, ExampleFilterOptions, ExampleTransformer, ExampleTransformerOptions };

@@ -28,7 +28,10 @@ var MarginRail_default = (() => {
     if (!fileData.frontmatter?.type) return null;
     const notes = fileData.frontmatter?.marginnotes;
     if (!Array.isArray(notes) || notes.length === 0) return null;
-    return /* @__PURE__ */ u2("div", { class: "margin-rail", children: notes.map((n2, i2) => /* @__PURE__ */ u2("p", { class: "margin-scribble", children: String(n2) }, i2)) });
+    return /* @__PURE__ */ u2("div", { class: "margin-rail", children: notes.map((n2, i2) => {
+      const paragraphs = String(n2).trim().split(/\n\s*\n/);
+      return /* @__PURE__ */ u2("div", { class: "margin-scribble", children: paragraphs.map((p2, pi) => /* @__PURE__ */ u2("p", { children: p2.trim() }, pi)) }, i2);
+    }) });
   };
   return MarginRail;
 });

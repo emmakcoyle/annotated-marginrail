@@ -1,25 +1,20 @@
 import type { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "@quartz-community/types"
 
+const relocateScript = `
+document.addEventListener("nav", () => {
+  const footnotes = document.querySelector(".markdown-preview-view .footnotes")
+  const rail = document.querySelector(".margin-rail")
+  if (footnotes && rail && !rail.contains(footnotes)) {
+    rail.appendChild(footnotes)
+  }
+})
+`
+
 export default (() => {
   const MarginRail: QuartzComponent = ({ fileData }: QuartzComponentProps) => {
     if (!fileData.frontmatter?.type) return null
-    const notes = fileData.frontmatter?.marginnotes as string[] | undefined
-    if (!Array.isArray(notes) || notes.length === 0) return null
-
-    return (
-      <div class="margin-rail">
-        {notes.map((n, i) => {
-          const paragraphs = String(n).trim().split(/\n\s*\n/)
-          return (
-            <div class="margin-scribble" key={i}>
-              {paragraphs.map((p, pi) => (
-                <p key={pi}>{p.trim()}</p>
-              ))}
-            </div>
-          )
-        })}
-      </div>
-    )
+    return <div class="margin-rail"></div>
   }
+  MarginRail.afterDOMLoaded = relocateScript
   return MarginRail
 }) satisfies QuartzComponentConstructor

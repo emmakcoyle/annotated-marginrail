@@ -18,21 +18,25 @@ function u2(e2, t2, n2, o2, i2, u3) {
   var a2, c2, p2 = t2;
   if ("ref" in p2) for (c2 in p2 = {}, t2) "ref" == c2 ? a2 = t2[c2] : p2[c2] = t2[c2];
   var l2 = { type: e2, props: p2, key: n2, ref: a2, __k: null, __: null, __b: 0, __e: null, __c: null, constructor: void 0, __v: --f2, __i: -1, __u: 0, __source: i2, __self: u3 };
-  if ("function" == typeof e2 && (a2 = e2.defaultProps)) for (c2 in a2) void 0 === p2[c2] && (p2[c2] = a2[c2]);
   return l.vnode && l.vnode(l2), l2;
 }
 
 // src/components/MarginRail.tsx
+var relocateScript = `
+document.addEventListener("nav", () => {
+  const footnotes = document.querySelector(".markdown-preview-view .footnotes")
+  const rail = document.querySelector(".margin-rail")
+  if (footnotes && rail && !rail.contains(footnotes)) {
+    rail.appendChild(footnotes)
+  }
+})
+`;
 var MarginRail_default = (() => {
   const MarginRail = ({ fileData }) => {
     if (!fileData.frontmatter?.type) return null;
-    const notes = fileData.frontmatter?.marginnotes;
-    if (!Array.isArray(notes) || notes.length === 0) return null;
-    return /* @__PURE__ */ u2("div", { class: "margin-rail", children: notes.map((n2, i2) => {
-      const paragraphs = String(n2).trim().split(/\n\s*\n/);
-      return /* @__PURE__ */ u2("div", { class: "margin-scribble", children: paragraphs.map((p2, pi) => /* @__PURE__ */ u2("p", { children: p2.trim() }, pi)) }, i2);
-    }) });
+    return /* @__PURE__ */ u2("div", { class: "margin-rail" });
   };
+  MarginRail.afterDOMLoaded = relocateScript;
   return MarginRail;
 });
 

@@ -3751,13 +3751,15 @@ function u2(e2, t2, n2, o2, i2, u3) {
 
 // src/components/MarginRail.tsx
 var relocateScript = `
-document.addEventListener("nav", () => {
+function relocateFootnotes() {
   const footnotes = document.querySelector(".markdown-preview-view .footnotes")
   const rail = document.querySelector(".margin-rail")
   if (footnotes && rail && !rail.contains(footnotes)) {
     rail.appendChild(footnotes)
   }
-})
+}
+document.addEventListener("nav", relocateFootnotes)
+document.addEventListener("render", relocateFootnotes)
 `;
 var MarginRail_default = (() => {
   const MarginRail = ({ fileData }) => {

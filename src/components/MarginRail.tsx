@@ -1,13 +1,15 @@
 import type { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "@quartz-community/types"
 
 const relocateScript = `
-document.addEventListener("nav", () => {
+function relocateFootnotes() {
   const footnotes = document.querySelector(".markdown-preview-view .footnotes")
   const rail = document.querySelector(".margin-rail")
   if (footnotes && rail && !rail.contains(footnotes)) {
     rail.appendChild(footnotes)
   }
-})
+}
+document.addEventListener("nav", relocateFootnotes)
+document.addEventListener("render", relocateFootnotes)
 `
 
 export default (() => {

@@ -18,7 +18,6 @@ function u2(e2, t2, n2, o2, i2, u3) {
   var a2, c2, p2 = t2;
   if ("ref" in p2) for (c2 in p2 = {}, t2) "ref" == c2 ? a2 = t2[c2] : p2[c2] = t2[c2];
   var l2 = { type: e2, props: p2, key: n2, ref: a2, __k: null, __: null, __b: 0, __e: null, __c: null, constructor: void 0, __v: --f2, __i: -1, __u: 0, __source: i2, __self: u3 };
-  if ("function" == typeof e2 && (a2 = e2.defaultProps)) for (c2 in a2) void 0 === p2[c2] && (p2[c2] = a2[c2]);
   return l.vnode && l.vnode(l2), l2;
 }
 
@@ -43,18 +42,6 @@ var MarginRail_default = (() => {
   return MarginRail;
 });
 
-// src/components/PencilFilter.tsx
-var PencilFilter = () => {
-  return /* @__PURE__ */ u2("svg", { width: "0", height: "0", style: { position: "absolute" }, children: /* @__PURE__ */ u2("defs", { children: /* @__PURE__ */ u2("filter", { id: "pencil", x: "-40%", y: "-40%", width: "180%", height: "180%", children: [
-    /* @__PURE__ */ u2("feTurbulence", { type: "fractalNoise", baseFrequency: "0.4 0.9", numOctaves: 2, seed: 3, result: "grain" }),
-    /* @__PURE__ */ u2("feColorMatrix", { in: "grain", type: "matrix", values: "0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1.6 -0.35", result: "grainA" }),
-    /* @__PURE__ */ u2("feComposite", { in: "SourceGraphic", in2: "grainA", operator: "in", result: "tex1" }),
-    /* @__PURE__ */ u2("feTurbulence", { type: "fractalNoise", baseFrequency: "0.02", numOctaves: 2, seed: 9, result: "wob" }),
-    /* @__PURE__ */ u2("feDisplacementMap", { in: "tex1", in2: "wob", scale: 2.5 })
-  ] }) }) });
-};
-var PencilFilter_default = (() => PencilFilter);
-
-export { MarginRail_default as MarginRail, PencilFilter_default as PencilFilter };
+export { MarginRail_default as MarginRail };
 //# sourceMappingURL=index.js.map
 //# sourceMappingURL=index.js.map

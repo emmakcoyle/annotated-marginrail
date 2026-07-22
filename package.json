@@ -118,11 +118,6 @@
         "displayName": "Margin Rail",
         "defaultPosition": "right",
         "defaultPriority": 5
-      },
-      "PencilFilter": {
-        "displayName": "Pencil Filter",
-        "defaultPosition": "header",
-        "defaultPriority": 1
       }
     }
   },

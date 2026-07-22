@@ -25,3 +25,4 @@ export type {
   PageGenerator,
   VirtualPage,
 } from "@quartz-community/types";
+export { default as PencilFilter } from "./components/PencilFilter"
